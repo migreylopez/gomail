@@ -19,12 +19,11 @@ func SendEmailSMTP(to []string, data interface{}, template string) (bool, error)
 
 	emailBody, err := parseTemplate(template, data)
 	if err != nil {
-		return false, errors.New("unable to parse email template")
+		return false, errors.New("unable to parse email template: " + err.Error())
 	}
 
-	mime := "MIME-version: 1.0;\nContent-Type: text/plain; charset=\"UTF-8\";\n\n"
-	subject := "Subject: " + "Test Email" + "!\n"
-	msg := []byte(subject + mime + "\n" + emailBody)
+	subject := "Subject: Fwd: Booking details | Departure: 23 July 2020 | PRA-HEL\n"
+	msg := []byte(subject + "\n" + emailBody)
 	addr := fmt.Sprintf("%s:%s", emailHost, emailPort)
 
 	if err := smtp.SendMail(addr, emailAuth, emailFrom, to, msg); err != nil {

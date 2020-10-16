@@ -50,7 +50,7 @@ func SendEmailOAUTH2(to string, data interface{}, template string) (bool, error)
 
 	emailBody, err := parseTemplate(template, data)
 	if err != nil {
-		return false, errors.New("unable to parse email template")
+		return false, errors.New("unable to parse email template: " + err.Error())
 	}
 
 	var message gmail.Message

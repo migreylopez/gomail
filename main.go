@@ -35,8 +35,8 @@ func main() {
 			ReceiverName string
 			SenderName   string
 		}{
-			ReceiverName: "David Gilmour",
-			SenderName:   "Binod Kafle",
+			ReceiverName: "Miguel",
+			SenderName:   "GoTest",
 		}
 
 		if inputMethod == "SMTP" {
