@@ -22,7 +22,7 @@ func SendEmailSMTP(to []string, data interface{}, template string) (bool, error)
 		return false, errors.New("unable to parse email template: " + err.Error())
 	}
 
-	subject := "Subject: Fwd: Booking details | Departure: 23 July 2020 | PRA-HEL\n"
+	subject := "Subject: Fwd: Booking details | Departure: 23 July 2020 | FRA-HEL\n"
 	msg := []byte(subject + "\n" + emailBody)
 	addr := fmt.Sprintf("%s:%s", emailHost, emailPort)
 
